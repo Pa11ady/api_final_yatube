@@ -1,8 +1,7 @@
 from django.shortcuts import get_object_or_404
+from posts.models import Group, Post
 from rest_framework import filters, mixins, pagination, viewsets
 from rest_framework.permissions import IsAuthenticated
-
-from posts.models import Group, Post
 
 from .permissions import IsUserCanModify
 from .serializers import (CommentSerializer, FollowSerializer, GroupSerializer,

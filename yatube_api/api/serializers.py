@@ -39,7 +39,8 @@ class FollowSerializer(serializers.ModelSerializer):
         model = Follow
         fields = ('user', 'following')
         validators = (validators.UniqueTogetherValidator(
-            queryset=Follow.objects.all(), fields=('user', 'following')),)
+            queryset=Follow.objects.all(), fields=('user', 'following'),
+            message='Вы уже подписаны на этого пользователя'),)
 
     def validate_following(self, following):
         if following == self.context['request'].user:
